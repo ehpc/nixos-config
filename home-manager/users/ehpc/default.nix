@@ -9,11 +9,6 @@ in
 
   home.stateVersion = "25.11";
 
-  home.packages = [
-    pkgs.nil
-    pkgs.nixfmt
-  ];
-
   home.file = {
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
@@ -51,6 +46,7 @@ in
   };
 
   imports = [
+    ./packages.nix
     ../../programs/nvim.nix
     ../../programs/vscode.nix
   ];
