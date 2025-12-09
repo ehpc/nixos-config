@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   users.users.ehpc = {
     isNormalUser = true;
@@ -6,8 +6,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
-    ];
-    packages = with pkgs; [
+      "tss"
     ];
   };
 }

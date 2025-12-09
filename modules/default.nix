@@ -17,6 +17,7 @@
     ./time.nix
     ./locale.nix
     ./security.nix
+    ./encryption.nix
     ./system-packages.nix
     ./users.nix
     ./audio.nix
