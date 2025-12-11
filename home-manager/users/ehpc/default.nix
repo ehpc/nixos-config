@@ -47,7 +47,7 @@ in
 
   imports = [
     ./packages.nix
-    ../../hyprland.nix
+    ../../programs/hyprland.nix
     ../../programs/nvim.nix
     ../../programs/vscode.nix
   ];
