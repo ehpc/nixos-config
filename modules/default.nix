@@ -26,9 +26,11 @@
     ./encryption.nix
     ./system-packages.nix
     ./users.nix
+    ./graphics.nix
     ./audio.nix
     ./printing.nix
     ./keyboard.nix
+    ./services.nix
     ./desktop
   ];
 

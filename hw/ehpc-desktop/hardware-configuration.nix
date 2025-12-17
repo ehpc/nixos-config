@@ -4,22 +4,33 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports = [ ];
+  imports =
+    [ (modulesPath + "/installer/scan/not-detected.nix")
+    ];
 
-  boot.initrd.availableKernelModules = [ "ata_piix" "ohci_pci" "ehci_pci" "ahci" "sd_mod" "sr_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
+  boot.initrd.kernelModules = [ "dm-snapshot" "cryptd" "amdgpu" ];
+  boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
+  boot.resumeDevice = "/dev/dm-1";
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/4dbb555c-507e-40a0-baa3-34ac36fb2d86";
+    { device = "/dev/disk/by-label/NixOS-Root";
       fsType = "ext4";
     };
 
+  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-label/NixOS-Encrypted";
+
+  fileSystems."/boot/efi" =
+    { device = "/dev/disk/by-label/NixOS-EFI";
+      fsType = "vfat";
+      options = [ "umask=0077" ];
+    };
+
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/b6c50239-20e7-4f1b-99b3-67e4be801a7d"; }
+    [ { device = "/dev/disk/by-label/NixOS-Swap"; }
     ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  virtualisation.virtualbox.guest.enable = true;
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
