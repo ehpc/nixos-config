@@ -33,6 +33,7 @@
     ./services.nix
     ./steam.nix
     ./gnome.nix
+    ./vpn.nix
   ];
 
   nixpkgs.config.allowUnfree = true;

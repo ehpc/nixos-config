@@ -2,6 +2,24 @@
 let
   username = "ehpc";
   email = "ehpc@ehpc.io";
+  mediaPlayers = [ "mpv.desktop" ];
+  browsers = [ "zen-beta.desktop" ];
+  associations = {
+    "x-scheme-handler/tg" = [ "org.telegram.desktop.desktop" ];
+    "x-scheme-handler/tonsite" = [ "org.telegram.desktop.desktop" ];
+    "x-scheme-handler/http" = browsers;
+    "x-scheme-handler/https" = browsers;
+    "x-scheme-handler/chrome" = browsers;
+    "text/html" = browsers;
+    "application/x-extension-htm" = browsers;
+    "application/x-extension-html" = browsers;
+    "application/x-extension-shtml" = browsers;
+    "application/xhtml+xml" = browsers;
+    "application/x-extension-xhtml" = browsers;
+    "application/x-extension-xht" = browsers;
+    "audio/*" = mediaPlayers;
+    "video/*" = mediaPlayers;
+  };
 in
 {
   home.username = username;
@@ -66,6 +84,10 @@ in
 
   xdg.enable = true;
 
+  xdg.mimeApps.enable = true;
+  xdg.mimeApps.associations.added = associations;
+  xdg.mimeApps.defaultApplications = associations;
+
   imports = [
     ./packages.nix
     ../../programs/ssh.nix
@@ -75,5 +97,6 @@ in
     ../../programs/vscode.nix
     ../../programs/zen-browser.nix
     ../../programs/qbittorrent
+    ../../programs/mpv.nix
   ];
 }
