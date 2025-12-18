@@ -5,7 +5,8 @@
     
     wget
     curl
-
+    
+    net-tools
     pciutils
     lshw
     traceroute

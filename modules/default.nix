@@ -31,7 +31,8 @@
     ./printing.nix
     ./keyboard.nix
     ./services.nix
-    ./desktop
+    ./steam.nix
+    ./gnome.nix
   ];
 
   nixpkgs.config.allowUnfree = true;

@@ -51,7 +51,7 @@ in
     settings."org/gnome/mutter" = {
       experimental-features = [
         "scale-monitor-framebuffer"
-        "variable-refresh-rate"
+        # "variable-refresh-rate"
         "xwayland-native-scaling"
       ];
     };
@@ -64,6 +64,8 @@ in
     };
   };
 
+  xdg.enable = true;
+
   imports = [
     ./packages.nix
     ../../programs/ssh.nix
@@ -72,5 +74,6 @@ in
     ../../programs/nvim.nix
     ../../programs/vscode.nix
     ../../programs/zen-browser.nix
+    ../../programs/qbittorrent
   ];
 }

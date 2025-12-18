@@ -7,6 +7,8 @@
       "networkmanager"
       "wheel"
       "tss"
+      "gamemode"
+      "qbittorrent"
     ];
   };
 }
