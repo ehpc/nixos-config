@@ -9,18 +9,27 @@
     enable = true;
     enable32Bit = true;
     extraPackages = with pkgs; [
-      intel-media-driver
-      intel-vaapi-driver
+      mesa
+      libva
+      libvdpau
+      libva-vdpau-driver
       libvdpau-va-gl
     ];
     extraPackages32 = with pkgs.pkgsi686Linux; [
-      intel-vaapi-driver
+      mesa
+      vulkan-loader
+      libva
+      libvdpau
+      libva-vdpau-driver
     ];
   };
 
   environment.variables.AMD_VULKAN_ICD = "RADV";
   environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = "iHD";
+    LIBVA_DRIVER_NAME = "radeonsi";
+    GBM_BACKEND = "radeonsi";
+    WLR_RENDERER = "vulkan";
+    VDPAU_DRIVER = "radeonsi";
   };
   services.xserver.videoDrivers = [ "amdgpu" ];
 

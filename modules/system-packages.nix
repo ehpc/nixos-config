@@ -5,6 +5,9 @@
     
     wget
     curl
+
+    unzip
+    ripgrep
     
     net-tools
     pciutils

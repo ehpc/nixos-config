@@ -9,6 +9,11 @@
         identityFile = "~/.ssh/github";
         identitiesOnly = true;
       };
+      "ehpc.io" = {
+        user = "ehpc";
+        identityFile = "~/.ssh/ehpc_io";
+        identitiesOnly = true;
+      };
     };
   };
   home.activation.fixSshConfigPermissions = lib.hm.dag.entryAfter [ "writeBoundary" ] ''

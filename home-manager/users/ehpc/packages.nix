@@ -4,8 +4,18 @@
     nil
     nixfmt
 
+    # Devices
+    evhz
+    piper
+
     # Package managers
     flatpak
+
+    # Disk management
+    restic
+    restic-browser
+    veracrypt
+    cryptomator
 
     # Utilities
     dconf-editor
@@ -16,6 +26,10 @@
     telegram-desktop
     discord
     qbittorrent
+    signal-desktop
+    zapzap
+    zoom-us
+    teams-for-linux
 
     # Browsers
     firefox
@@ -24,8 +38,12 @@
     # Media
     vlc
 
+    # Productivity
+    obsidian
+
     # Graphics
     clinfo
+    libva-utils
     vulkan-headers
     vulkan-loader
     vulkan-validation-layers
@@ -33,5 +51,6 @@
     vulkan-tools-lunarg
     mesa-demos
     mangohud
+    radeontop
   ];
 }

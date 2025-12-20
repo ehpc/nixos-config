@@ -2,7 +2,12 @@
 {
   services.xserver.enable = true;
 
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    MOZ_ENABLE_WAYLAND = "1";
+    QT_QPA_PLATFORM = "wayland";
+    SDL_VIDEODRIVER = "wayland";
+  };
 
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;

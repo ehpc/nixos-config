@@ -10,12 +10,5 @@
         "xwayland-native-scaling"
       ];
     };
-    settings."org/gnome/shell" = {
-      disable-user-extensions = false;
-      enabled-extensions = with pkgs.gnomeExtensions; [
-        hibernate-status-button.extensionUuid
-        appindicator.extensionUuid
-      ];
-    };
   };
 }
