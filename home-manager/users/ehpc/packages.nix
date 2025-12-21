@@ -28,7 +28,6 @@
     qbittorrent
     signal-desktop
     zapzap
-    zoom-us
     teams-for-linux
 
     # Browsers

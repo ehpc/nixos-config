@@ -9,9 +9,11 @@
     unzip
     ripgrep
     
+    gparted
     net-tools
     pciutils
     lshw
     traceroute
+    v4l-utils # qv4l2
   ];
 }

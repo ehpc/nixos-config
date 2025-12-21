@@ -6,6 +6,7 @@
     extensions = with pkgs.gnomeExtensions; [
       { package = appindicator; }
       { package = blur-my-shell; }
+      { package = quick-lang-switch; }
     ];
   };
 }

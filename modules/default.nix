@@ -30,10 +30,12 @@
     ./audio.nix
     ./printing.nix
     ./keyboard.nix
+    ./udev.nix
     ./services.nix
     ./steam.nix
     ./gnome.nix
     ./vpn.nix
+    ./programs.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
