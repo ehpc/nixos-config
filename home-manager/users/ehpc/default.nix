@@ -27,7 +27,8 @@ in
     ../../programs/ssh.nix
     ../../programs/flatpak.nix
     ../../programs/gnome-shell.nix
-    # ../../programs/hyprland.nix
+    ../../programs/kitty.nix
+    ../../programs/hyprland.nix
     ../../programs/nvim.nix
     ../../programs/vscode.nix
     ../../programs/zen-browser.nix

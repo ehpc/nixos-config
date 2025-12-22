@@ -79,7 +79,7 @@
   };
 
   fileSystems."/home/ehpc/safestorage" = {
-    device = "/dev/mapper/lvmsafestorage";
+    device = "/dev/mapper/lvmsafestorage-safestorage";
     fsType = "ext4";
     options = [
       "nofail"

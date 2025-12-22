@@ -17,8 +17,9 @@
   };
 
   imports = [
-    ../hw/${hostname}/hardware-configuration.nix
+    ../hardware/${hostname}/hardware-configuration.nix
     ./boot.nix
+    ./power.nix
     ./network.nix
     ./time.nix
     ./locale.nix

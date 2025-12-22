@@ -3,16 +3,30 @@
   wayland.windowManager.hyprland = {
     enable = true;
 
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    portalPackage =
-      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-
-    plugins = [
-      inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+    plugins = with pkgs.hyprlandPlugins; [
+      hyprexpo
     ];
 
-    extraConfig = ''
-      bind = SUPER, g, hyprexpo:expo, toggle
-    '';
+    settings = {
+      "$mod" = "SUPER";
+
+      "$menu" = "hyprlauncher";
+      "$terminal" = "kitty";
+      "$browser" = "zen";
+
+      input = {
+        kb_layout = "us,ru";
+        kb_options = "grp:alt_shift_toggle";
+      };
+
+      bind = [
+        "$mod, b, hyprexpo:expo, toggle"
+
+        # Apps
+        "$mod, SPACE, exec, $menu"
+        "$mod, b, $browser"
+        "$mod, t, $terminal"
+      ];
+    };
   };
 }
