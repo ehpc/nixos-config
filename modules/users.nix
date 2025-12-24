@@ -9,6 +9,9 @@
       "tss"
       "gamemode"
       "qbittorrent"
+      "audio"
+      "rtkit"
+      "yandexdisk"
     ];
   };
 }

@@ -35,5 +35,6 @@ in
     ../../programs/qbittorrent
     ../../programs/mpv.nix
     ../../programs/chromium.nix
+    ../../programs/restic.nix
   ];
 }

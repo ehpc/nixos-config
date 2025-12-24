@@ -10,8 +10,13 @@
         efiSysMountPoint = "/boot/efi";
       };
     };
+    kernelParams = [
+      "preempt=full"
+      "threadirqs"
+    ];
     kernel.sysctl = {
       "vm.swappiness" = 10;
+      "fs.inotify.max_user_watches" = 1048576;
     };
   };
 }

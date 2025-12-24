@@ -37,6 +37,7 @@
     ./gnome.nix
     ./vpn.nix
     ./programs.nix
+    ./yandex-disk.nix
   ];
 
   nixpkgs.config.allowUnfree = true;

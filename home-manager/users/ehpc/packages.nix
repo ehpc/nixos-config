@@ -21,6 +21,7 @@
     dconf-editor
     nwipe
     nethogs
+    cpu-x
 
     # Social
     telegram-desktop
@@ -51,5 +52,12 @@
     mesa-demos
     mangohud
     radeontop
+
+    # Audio
+    pavucontrol
+    pwvucontrol
+
+    # Drawing
+    krita
   ];
 }
