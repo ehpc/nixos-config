@@ -18,10 +18,12 @@
     cryptomator
 
     # Utilities
+    wl-clipboard
     dconf-editor
     nwipe
     nethogs
     cpu-x
+    remmina
 
     # Social
     telegram-desktop
@@ -59,5 +61,8 @@
 
     # Drawing
     krita
+    gimp
+    inkscape
+    pinta
   ];
 }

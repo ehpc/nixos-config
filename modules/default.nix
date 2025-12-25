@@ -21,6 +21,7 @@
     ./boot.nix
     ./power.nix
     ./network.nix
+    ./firewall.nix
     ./time.nix
     ./locale.nix
     ./security.nix
@@ -36,6 +37,7 @@
     ./steam.nix
     ./gnome.nix
     ./vpn.nix
+    ./rdp.nix
     ./programs.nix
     ./yandex-disk.nix
   ];
