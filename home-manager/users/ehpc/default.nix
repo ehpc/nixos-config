@@ -1,4 +1,8 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  ...
+}:
 let
   username = "ehpc";
   email = "ehpc@ehpc.io";
@@ -33,9 +37,12 @@ in
     ../../programs/vscode.nix
     ../../programs/zen-browser.nix
     ../../programs/qbittorrent
-    ../../programs/mpv.nix
+    (import ../../programs/mpv.nix {
+      inherit username;
+    })
     ../../programs/chromium.nix
     ../../programs/restic.nix
     ../../programs/tailscale.nix
+    ../../programs/reaper.nix
   ];
 }

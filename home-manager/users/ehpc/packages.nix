@@ -24,6 +24,8 @@
     nethogs
     cpu-x
     remmina
+    grim
+    slurp
 
     # Social
     telegram-desktop
@@ -58,6 +60,7 @@
     # Audio
     pavucontrol
     pwvucontrol
+    bitwig-studio
 
     # Drawing
     krita

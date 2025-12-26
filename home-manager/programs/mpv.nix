@@ -1,4 +1,4 @@
-{ ... }:
+{ username, ... }:
 {
   programs.mpv = {
     enable = true;
@@ -13,6 +13,9 @@
       save-position-on-quit = "yes";
       hwdec = "auto";
       volume-max = 200;
+      keep-open = "yes";
+      screenshot-dir = "/home/${username}/screenshots/mpv";
+      screenshot-template = "mpv-shot-%F-%p-%n";
     };
   };
 }

@@ -12,6 +12,7 @@
       "audio"
       "rtkit"
       "yandexdisk"
+      "docker"
     ];
   };
 }

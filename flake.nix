@@ -22,16 +22,23 @@
     inputs@{
       self,
       nixpkgs,
+      nixpkgs-unstable,
       home-manager,
       ...
     }:
-    {
-      nixosConfigurations = {
-        ehpc-desktop = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+    let
+      mkHost =
+        { system, hostname }:
+        let
+          pkgsUnstable = import nixpkgs-unstable {
+            inherit system;
+            config.allowUnfree = true;
+          };
+        in
+        nixpkgs.lib.nixosSystem {
+          inherit system;
           specialArgs = {
-            hostname = "ehpc-desktop";
-            inherit inputs;
+            inherit hostname inputs pkgsUnstable;
           };
           modules = [
             ./modules
@@ -40,11 +47,18 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
-                inherit inputs;
+                inherit inputs pkgsUnstable;
               };
               home-manager.users.ehpc = ./home-manager/users/ehpc;
             }
           ];
+        };
+    in
+    {
+      nixosConfigurations = {
+        ehpc-desktop = mkHost {
+          system = "x86_64-linux";
+          hostname = "ehpc-desktop";
         };
       };
     };

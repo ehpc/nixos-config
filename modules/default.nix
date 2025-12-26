@@ -35,10 +35,12 @@
     ./udev.nix
     ./services.nix
     ./steam.nix
-    ./gnome.nix
+    ./desktop.nix
     ./vpn.nix
+    ./tailscale.nix
     ./rdp.nix
     ./programs.nix
+    ./virtualization.nix
     ./yandex-disk.nix
   ];
 
