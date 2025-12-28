@@ -13,6 +13,7 @@
       "rtkit"
       "yandexdisk"
       "docker"
+      "libvirtd"
     ];
   };
 }

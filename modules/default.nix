@@ -28,6 +28,7 @@
     ./encryption.nix
     ./system-packages.nix
     ./users.nix
+    ./bluetooth.nix
     ./graphics.nix
     ./audio.nix
     ./printing.nix

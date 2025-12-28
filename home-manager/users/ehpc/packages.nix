@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgsUnstable, ... }:
 {
   home.packages = with pkgs; [
     nil
@@ -7,6 +7,7 @@
     # Devices
     evhz
     piper
+    v4l-utils # qv4l2
 
     # Package managers
     flatpak
@@ -44,6 +45,7 @@
 
     # Productivity
     obsidian
+    calibre
 
     # Graphics
     clinfo
@@ -56,16 +58,25 @@
     mesa-demos
     mangohud
     radeontop
+    ffmpeg
 
     # Audio
     pavucontrol
     pwvucontrol
     bitwig-studio
+    yabridge
+    yabridgectl
+
+    # Photo
+    gphoto2
 
     # Drawing
     krita
     gimp
     inkscape
     pinta
+
+    # Dev
+    dbeaver-bin
   ];
 }

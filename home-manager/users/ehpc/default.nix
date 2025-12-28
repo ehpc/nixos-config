@@ -43,6 +43,7 @@ in
     ../../programs/chromium.nix
     ../../programs/restic.nix
     ../../programs/tailscale.nix
-    ../../programs/reaper.nix
+    ../../programs/davinci-resolve.nix
+    ../../programs/obs.nix
   ];
 }

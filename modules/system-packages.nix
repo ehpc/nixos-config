@@ -14,6 +14,6 @@
     pciutils
     lshw
     traceroute
-    v4l-utils # qv4l2
+    dig
   ];
 }
