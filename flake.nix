@@ -16,6 +16,10 @@
       };
     };
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -24,6 +28,7 @@
       nixpkgs,
       nixpkgs-unstable,
       home-manager,
+      sops-nix,
       ...
     }:
     let
@@ -42,6 +47,7 @@
           };
           modules = [
             ./modules
+            sops-nix.nixosModules.sops
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -50,6 +56,9 @@
                 inherit inputs pkgsUnstable;
               };
               home-manager.users.ehpc = ./home-manager/users/ehpc;
+              home-manager.sharedModules = [
+                sops-nix.homeManagerModules.sops
+              ];
             }
           ];
         };

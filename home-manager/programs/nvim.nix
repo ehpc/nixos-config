@@ -7,5 +7,6 @@
     '';
     viAlias = true;
     vimAlias = true;
+    defaultEditor = true;
   };
 }

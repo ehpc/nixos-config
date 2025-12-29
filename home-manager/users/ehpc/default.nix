@@ -13,18 +13,19 @@ in
 
   home.stateVersion = "25.11";
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
-
   programs.home-manager.enable = true;
 
   xdg.enable = true;
 
   imports = [
+    (import ../../settings/sops.nix {
+      inherit username;
+    })
     ../../settings/dconf.nix
     ../../settings/mime.nix
     ./packages.nix
+    ../../programs/bash.nix
+    ../../programs/starship.nix
     (import ../../programs/git.nix {
       inherit username email;
     })
@@ -45,5 +46,7 @@ in
     ../../programs/tailscale.nix
     ../../programs/davinci-resolve.nix
     ../../programs/obs.nix
+    ../../programs/btop
+    ../../programs/halloy.nix
   ];
 }

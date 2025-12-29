@@ -43,6 +43,7 @@
     ./programs.nix
     ./virtualization.nix
     ./yandex-disk.nix
+    ./fonts.nix
   ];
 
   nixpkgs.config.allowUnfree = true;

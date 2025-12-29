@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 {
   programs.halloy = {
     enable = true;
@@ -17,6 +17,7 @@
           ];
           nickname = "ehpc";
           server = "irc.libera.chat";
+          nick_password_file = config.sops.secrets."irc-pwd".path;
         };
       };
     };

@@ -27,6 +27,8 @@
     remmina
     grim
     slurp
+    age
+    sops
 
     # Social
     telegram-desktop
