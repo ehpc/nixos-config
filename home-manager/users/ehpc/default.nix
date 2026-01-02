@@ -18,11 +18,15 @@ in
 
   imports =
     if isDarwin then
-      [ ]
+      [
+        (import ./darwin.nix {
+          inherit pkgs username email;
+        })
+      ]
     else
       [
         (import ./linux.nix {
-          inherit username email;
+          inherit pkgs username email;
         })
       ];
 }
