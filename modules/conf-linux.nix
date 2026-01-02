@@ -1,0 +1,39 @@
+{
+  config,
+  hostname,
+  system,
+  ...
+}:
+{
+  system.stateVersion = "25.11";
+
+  imports = [
+    ../hardware/${hostname}/hardware-configuration.nix
+    ./boot.nix
+    ./power.nix
+    ./network.nix
+    ./firewall.nix
+    ./time.nix
+    ./locale.nix
+    ./security.nix
+    ./encryption.nix
+    ./system-packages.nix
+    ./users.nix
+    ./bluetooth.nix
+    ./graphics.nix
+    ./audio.nix
+    ./printing.nix
+    ./keyboard.nix
+    ./udev.nix
+    ./services.nix
+    ./steam.nix
+    ./desktop.nix
+    ./vpn.nix
+    ./tailscale.nix
+    ./rdp.nix
+    ./programs.nix
+    ./virtualization.nix
+    ./yandex-disk.nix
+    ./fonts.nix
+  ];
+}

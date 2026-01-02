@@ -1,7 +1,11 @@
 {
+  self,
   config,
   pkgs,
   hostname,
+  isDarwin,
+  system,
+  nixpkgs,
   ...
 }:
 {
@@ -16,37 +20,15 @@
     trusted-users = [ "ehpc" ];
   };
 
-  imports = [
-    ../hardware/${hostname}/hardware-configuration.nix
-    ./boot.nix
-    ./power.nix
-    ./network.nix
-    ./firewall.nix
-    ./time.nix
-    ./locale.nix
-    ./security.nix
-    ./encryption.nix
-    ./system-packages.nix
-    ./users.nix
-    ./bluetooth.nix
-    ./graphics.nix
-    ./audio.nix
-    ./printing.nix
-    ./keyboard.nix
-    ./udev.nix
-    ./services.nix
-    ./steam.nix
-    ./desktop.nix
-    ./vpn.nix
-    ./tailscale.nix
-    ./rdp.nix
-    ./programs.nix
-    ./virtualization.nix
-    ./yandex-disk.nix
-    ./fonts.nix
-  ];
-
   nixpkgs.config.allowUnfree = true;
 
-  system.stateVersion = "25.11";
+  imports =
+    if isDarwin then
+      [
+        ./conf-darwin.nix
+      ]
+    else
+      [
+        ./conf-linux.nix
+      ];
 }

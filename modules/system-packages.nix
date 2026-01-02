@@ -1,19 +1,28 @@
-{ pkgs, ... }:
+{ pkgs, isDarwin, ... }:
 {
-  environment.systemPackages = with pkgs; [
-    vim
-    
-    wget
-    curl
+  environment.systemPackages =
+    with pkgs;
+    [
+      vim
 
-    unzip
-    ripgrep
-    
-    gparted
-    net-tools
-    pciutils
-    lshw
-    traceroute
-    dig
-  ];
+      wget
+      curl
+
+      unzip
+      ripgrep
+
+      net-tools
+      dig
+    ]
+    ++ (
+      if isDarwin then
+        [ ]
+      else
+        [
+          gparted
+          lshw
+          pciutils
+          traceroute
+        ]
+    );
 }

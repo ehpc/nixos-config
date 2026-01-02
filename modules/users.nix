@@ -1,19 +1,27 @@
-{ ... }:
+{ isDarwin, ... }:
 {
-  users.users.ehpc = {
-    isNormalUser = true;
-    description = "ehpc";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "tss"
-      "gamemode"
-      "qbittorrent"
-      "audio"
-      "rtkit"
-      "yandexdisk"
-      "docker"
-      "libvirtd"
-    ];
-  };
+  users.users.ehpc =
+    if isDarwin then
+      {
+        description = "ehpc";
+        home = "/Users/ehpc";
+      }
+    else
+      {
+        isNormalUser = true;
+        description = "ehpc";
+        home = "/home/ehpc";
+        extraGroups = [
+          "networkmanager"
+          "wheel"
+          "tss"
+          "gamemode"
+          "qbittorrent"
+          "audio"
+          "rtkit"
+          "yandexdisk"
+          "docker"
+          "libvirtd"
+        ];
+      };
 }

@@ -4,6 +4,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nix-darwin = {
+      url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,6 +31,7 @@
       self,
       nixpkgs,
       nixpkgs-unstable,
+      nix-darwin,
       home-manager,
       sops-nix,
       ...
@@ -35,25 +40,39 @@
       mkHost =
         { system, hostname }:
         let
+          isDarwin = system == "aarch64-darwin" || system == "x86_64-darwin";
           pkgsUnstable = import nixpkgs-unstable {
             inherit system;
             config.allowUnfree = true;
           };
+          libSystem = if isDarwin then nix-darwin.lib.darwinSystem else nixpkgs.lib.nixosSystem;
+          hmModule =
+            if isDarwin then
+              home-manager.darwinModules.home-manager
+            else
+              home-manager.nixosModules.home-manager;
         in
-        nixpkgs.lib.nixosSystem {
+        libSystem {
           inherit system;
           specialArgs = {
-            inherit hostname inputs pkgsUnstable;
+            inherit
+              self
+              system
+              nixpkgs
+              hostname
+              inputs
+              pkgsUnstable
+              isDarwin
+              ;
           };
           modules = [
             ./modules
-            sops-nix.nixosModules.sops
-            home-manager.nixosModules.home-manager
+            hmModule
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = {
-                inherit inputs pkgsUnstable;
+                inherit inputs pkgsUnstable isDarwin;
               };
               home-manager.users.ehpc = ./home-manager/users/ehpc;
               home-manager.sharedModules = [
@@ -68,6 +87,12 @@
         ehpc-desktop = mkHost {
           system = "x86_64-linux";
           hostname = "ehpc-desktop";
+        };
+      };
+      darwinConfigurations = {
+        "ehpc-air" = mkHost {
+          system = "aarch64-darwin";
+          hostname = "ehpc-air";
         };
       };
     };
