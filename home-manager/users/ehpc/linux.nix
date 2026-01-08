@@ -29,7 +29,7 @@
     ../../programs/zen-browser.nix
     ../../programs/qbittorrent
     (import ../../programs/mpv.nix {
-      inherit username;
+      inherit isDarwin username;
     })
     ../../programs/chromium.nix
     ../../programs/restic.nix
@@ -120,5 +120,6 @@
 
     # Dev
     dbeaver-bin
+    nasm
   ];
 }

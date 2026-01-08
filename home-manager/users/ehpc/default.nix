@@ -20,13 +20,13 @@ in
     if isDarwin then
       [
         (import ./darwin.nix {
-          inherit pkgs username email;
+          inherit pkgs isDarwin username email;
         })
       ]
     else
       [
         (import ./linux.nix {
-          inherit pkgs username email;
+          inherit pkgs isDarwin username email;
         })
       ];
 }
