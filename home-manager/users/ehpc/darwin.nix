@@ -25,6 +25,15 @@
     docker
     colima
 
+    # Disk management
+    restic
+    restic-browser
+
+    # Remote
     moonlight-qt
+
+    # Browsers
+    firefox
+    google-chrome
   ];
 }
