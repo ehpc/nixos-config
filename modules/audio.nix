@@ -1,7 +1,7 @@
 { pkgs, ... }:
 let
   clock_rate = 48000;
-  audio_quant = 128;
+  audio_quant = 256;
   audio_min_quant = 64;
   audio_max_quant = 1024;
 in

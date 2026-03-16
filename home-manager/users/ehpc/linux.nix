@@ -108,6 +108,9 @@
     bitwig-studio
     yabridge
     yabridgectl
+    aubio
+    friture
+    tony
 
     # Photo
     gphoto2

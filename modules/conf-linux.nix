@@ -30,6 +30,7 @@
     ./desktop.nix
     ./vpn.nix
     ./tailscale.nix
+    ./sunshine.nix
     ./rdp.nix
     ./programs.nix
     ./virtualization.nix
