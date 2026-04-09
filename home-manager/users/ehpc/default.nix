@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  pkgsUnstable,
   isDarwin,
   ...
 }:
@@ -20,13 +21,13 @@ in
     if isDarwin then
       [
         (import ./darwin.nix {
-          inherit pkgs isDarwin username email;
+          inherit pkgs pkgsUnstable isDarwin username email;
         })
       ]
     else
       [
         (import ./linux.nix {
-          inherit pkgs isDarwin username email;
+          inherit pkgs pkgsUnstable isDarwin username email;
         })
       ];
 }

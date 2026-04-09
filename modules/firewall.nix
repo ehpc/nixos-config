@@ -8,5 +8,6 @@
         3389
       ];
     };
+    trustedInterfaces = [ "virbr0" ];
   };
 }

@@ -43,7 +43,9 @@
           isDarwin = system == "aarch64-darwin" || system == "x86_64-darwin";
           pkgsUnstable = import nixpkgs-unstable {
             inherit system;
-            config.allowUnfree = true;
+            config = {
+              allowUnfree = true;
+            };
           };
           libSystem = if isDarwin then nix-darwin.lib.darwinSystem else nixpkgs.lib.nixosSystem;
           hmModule =

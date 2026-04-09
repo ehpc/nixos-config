@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgsUnstable,
   isDarwin,
   username,
   email,
@@ -7,6 +8,14 @@
 }:
 {
   xdg.enable = true;
+
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gnome
+    ];
+  };
 
   imports = [
     (import ../../settings/sops.nix {
@@ -35,6 +44,7 @@
     ../../programs/restic.nix
     ../../programs/tailscale.nix
     ../../programs/davinci-resolve.nix
+    ../../programs/friture.nix
     ../../programs/obs.nix
     ../../programs/btop
     ../../programs/halloy.nix
@@ -48,6 +58,7 @@
     evhz
     piper
     v4l-utils # qv4l2
+    dnsmasq
 
     # Package managers
     flatpak
@@ -80,6 +91,7 @@
 
     # Browsers
     firefox
+    (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true; }) { })
     google-chrome
 
     # Media
@@ -105,12 +117,16 @@
     # Audio
     pavucontrol
     pwvucontrol
-    bitwig-studio
     yabridge
     yabridgectl
     aubio
-    friture
-    tony
+    pkgsUnstable.bitwig-studio
+    pkgsUnstable.tony
+    pkgsUnstable.audacity
+    pkgsUnstable.nootka
+    pkgsUnstable.solfege
+    pkgsUnstable.ultrastardx
+    pkgsUnstable.performous
 
     # Photo
     gphoto2
@@ -122,7 +138,8 @@
     pinta
 
     # Dev
-    dbeaver-bin
-    nasm
+    pkgsUnstable.dbeaver-bin
+    pkgsUnstable.nasm
+    pkgsUnstable.claude-code
   ];
 }

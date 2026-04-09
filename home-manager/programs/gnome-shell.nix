@@ -7,6 +7,7 @@
       { package = appindicator; }
       { package = blur-my-shell; }
       { package = quick-lang-switch; }
+      { package = media-controls; }
     ];
   };
 }
