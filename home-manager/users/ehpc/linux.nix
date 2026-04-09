@@ -48,6 +48,9 @@
     ../../programs/obs.nix
     ../../programs/btop
     ../../programs/halloy.nix
+    (import ../../programs/claude {
+      inherit pkgsUnstable username;
+    })
   ];
 
   home.packages = with pkgs; [
@@ -80,6 +83,10 @@
     slurp
     age
     sops
+    jq
+    ripgrep
+    fd
+    tree
 
     # Social
     telegram-desktop
