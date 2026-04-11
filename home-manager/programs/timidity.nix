@@ -1,0 +1,6 @@
+{ ... }:
+{
+  programs.timidity = {
+    enable = true;
+  };
+}

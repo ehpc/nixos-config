@@ -48,6 +48,8 @@
     ../../programs/obs.nix
     ../../programs/btop
     ../../programs/halloy.nix
+    ../../programs/timidity.nix
+    ../../programs/fluidsynth.nix
     (import ../../programs/claude {
       inherit pkgsUnstable username;
     })
@@ -134,6 +136,10 @@
     pkgsUnstable.solfege
     pkgsUnstable.ultrastardx
     pkgsUnstable.performous
+    pkgsUnstable.vmpk
+    pkgsUnstable.musescore
+    pkgsUnstable.lmms
+    pkgsUnstable.fluidsynth
 
     # Photo
     gphoto2
