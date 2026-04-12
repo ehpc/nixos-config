@@ -24,6 +24,10 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    playwright-cli = {
+      url = "path:./packages/playwright-cli";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -34,6 +38,7 @@
       nix-darwin,
       home-manager,
       sops-nix,
+      playwright-cli,
       ...
     }:
     let
@@ -65,6 +70,7 @@
               inputs
               pkgsUnstable
               isDarwin
+              playwright-cli
               ;
           };
           modules = [

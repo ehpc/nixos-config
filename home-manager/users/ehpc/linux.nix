@@ -51,7 +51,7 @@
     ../../programs/timidity.nix
     ../../programs/fluidsynth.nix
     (import ../../programs/claude {
-      inherit pkgsUnstable username;
+      inherit pkgs pkgsUnstable username;
     })
   ];
 
@@ -154,5 +154,6 @@
     pkgsUnstable.dbeaver-bin
     pkgsUnstable.nasm
     pkgsUnstable.claude-code
+    pkgs.playwright-cli
   ];
 }

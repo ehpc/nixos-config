@@ -6,6 +6,7 @@
   isDarwin,
   system,
   nixpkgs,
+  playwright-cli,
   ...
 }:
 {
@@ -21,6 +22,7 @@
   };
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.overlays = [ playwright-cli.overlays.default ];
 
   imports =
     if isDarwin then

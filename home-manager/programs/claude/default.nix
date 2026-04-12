@@ -1,13 +1,19 @@
-{ pkgsUnstable, username, ... }:
+{ pkgs, pkgsUnstable, username, ... }:
 {
   home.file.".claude/statusline-command.sh" = {
     source = ./statusline-command.sh;
     executable = true;
   };
 
+  home.file.".claude/skills/playwright-cli" = {
+    source = pkgs.playwright-cli.src + "/skills/playwright-cli";
+    recursive = true;
+  };
+
   programs.claude-code = {
     enable = true;
     package = pkgsUnstable.claude-code;
+    skills = { };
     settings = {
       env = {
         CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS = "1";
