@@ -141,6 +141,7 @@
     pkgsUnstable.lmms
     pkgsUnstable.fluidsynth
     pkgsUnstable.demucs-rs
+    pkgs.audio-separator
 
     # Photo
     gphoto2

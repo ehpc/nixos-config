@@ -28,6 +28,10 @@
       url = "path:./packages/playwright-cli";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    audio-separator = {
+      url = "path:./packages/audio-separator";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   outputs =
@@ -39,6 +43,7 @@
       home-manager,
       sops-nix,
       playwright-cli,
+      audio-separator,
       ...
     }:
     let
@@ -71,6 +76,7 @@
               pkgsUnstable
               isDarwin
               playwright-cli
+              audio-separator
               ;
           };
           modules = [

@@ -7,6 +7,7 @@
   system,
   nixpkgs,
   playwright-cli,
+  audio-separator,
   ...
 }:
 {
@@ -22,7 +23,10 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.overlays = [ playwright-cli.overlays.default ];
+  nixpkgs.overlays = [
+    playwright-cli.overlays.default
+    audio-separator.overlays.default
+  ];
 
   imports =
     if isDarwin then
