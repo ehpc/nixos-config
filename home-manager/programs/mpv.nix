@@ -17,6 +17,7 @@
       screenshot-dir =
         if isDarwin then "/Users/${username}/screenshots/mpv" else "/home/${username}/screenshots/mpv";
       screenshot-template = "mpv-shot-%F-%p-%n";
+      # osd-level = 2; # Key "O"
     };
   };
 }

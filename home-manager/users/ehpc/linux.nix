@@ -140,6 +140,7 @@
     pkgsUnstable.musescore
     pkgsUnstable.lmms
     pkgsUnstable.fluidsynth
+    pkgsUnstable.demucs-rs
 
     # Photo
     gphoto2

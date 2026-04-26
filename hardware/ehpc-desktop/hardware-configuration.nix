@@ -67,6 +67,7 @@
       "gid=100"
       "dmask=022"
       "fmask=133"
+      "nofail"
     ];
   };
 

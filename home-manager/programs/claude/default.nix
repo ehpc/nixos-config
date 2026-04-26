@@ -1,4 +1,9 @@
-{ pkgs, pkgsUnstable, username, ... }:
+{
+  pkgs,
+  pkgsUnstable,
+  username,
+  ...
+}:
 {
   home.file.".claude/statusline-command.sh" = {
     source = ./statusline-command.sh;
@@ -85,7 +90,10 @@
         enabled = true;
         failIfUnavailable = false;
         filesystem = {
-          allowWrite = [ "./" ];
+          allowWrite = [
+            "./"
+            "~/.cache/"
+          ];
           denyWrite = [
             "~/.ssh"
             "~/.gnupg"
