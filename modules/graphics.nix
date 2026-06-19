@@ -10,6 +10,7 @@
     enable32Bit = true;
     extraPackages = with pkgs; [
       mesa
+      mesa.opencl
       libva
       libvdpau
       libva-vdpau-driver
@@ -23,8 +24,10 @@
       libva-vdpau-driver
     ];
   };
-
-  environment.variables.AMD_VULKAN_ICD = "RADV";
+  environment.variables = {
+    AMD_VULKAN_ICD = "RADV";
+    RUSTICL_ENABLE = "radeonsi";
+  };
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "radeonsi";
     GBM_BACKEND = "radeonsi";
@@ -37,4 +40,6 @@
   systemd.packages = with pkgs; [ lact ];
   systemd.services.lactd.wantedBy = [ "multi-user.target" ];
   services.lact.enable = true;
+
+  services.colord.enable = true;
 }

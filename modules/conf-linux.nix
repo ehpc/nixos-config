@@ -10,6 +10,7 @@
   imports = [
     ../hardware/${hostname}/hardware-configuration.nix
     ./boot.nix
+    ./environment.nix
     ./power.nix
     ./network.nix
     ./firewall.nix

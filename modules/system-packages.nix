@@ -13,6 +13,8 @@
 
       net-tools
       dig
+
+      file
     ]
     ++ (
       if isDarwin then

@@ -24,6 +24,9 @@
     ../../settings/dconf.nix
     ../../settings/mime.nix
     ../../programs/bash.nix
+    (import ../../programs/python.nix {
+      inherit pkgs pkgsUnstable;
+    })
     ../../programs/starship.nix
     (import ../../programs/git.nix {
       inherit username email;
@@ -33,6 +36,7 @@
     ../../programs/gnome-shell.nix
     ../../programs/kitty.nix
     ../../programs/hyprland.nix
+    ../../programs/distrobox.nix
     ../../programs/nvim.nix
     ../../programs/vscode.nix
     ../../programs/zen-browser.nix
@@ -50,6 +54,7 @@
     ../../programs/halloy.nix
     ../../programs/timidity.nix
     ../../programs/fluidsynth.nix
+    (import ../../programs/dropbox.nix { inherit username; })
     (import ../../programs/claude {
       inherit pkgs pkgsUnstable username;
     })
@@ -100,7 +105,7 @@
 
     # Browsers
     firefox
-    (pkgs.wrapFirefox (pkgs.firefox-unwrapped.override { pipewireSupport = true; }) { })
+    (wrapFirefox (firefox-unwrapped.override { pipewireSupport = true; }) { })
     google-chrome
 
     # Media
@@ -109,6 +114,7 @@
     # Productivity
     obsidian
     calibre
+    libreoffice
 
     # Graphics
     clinfo
@@ -122,6 +128,8 @@
     mangohud
     radeontop
     ffmpeg
+    oxipng
+    pngquant
 
     # Audio
     pavucontrol
@@ -141,10 +149,23 @@
     pkgsUnstable.lmms
     pkgsUnstable.fluidsynth
     pkgsUnstable.demucs-rs
-    pkgs.audio-separator
+    pkgsUnstable.yt-dlp
+    audio-separator
+    praat
+    vamp-plugin-sdk
+    sonic-visualiser
+    pkgsUnstable.rubberband
+    pkgsUnstable.sox
+    pkgsUnstable.jamulus
 
     # Photo
     gphoto2
+    pkgsUnstable.darktable
+    pkgsUnstable.hugin
+
+    # Video
+    pkgsUnstable.kdePackages.kdenlive
+    pkgsUnstable.handbrake
 
     # Drawing
     krita
@@ -156,6 +177,11 @@
     pkgsUnstable.dbeaver-bin
     pkgsUnstable.nasm
     pkgsUnstable.claude-code
-    pkgs.playwright-cli
+    playwright-cli
+    pkgsUnstable.onnxruntime
+    gh
+
+    # Virtualization
+    bottles
   ];
 }
