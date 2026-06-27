@@ -30,6 +30,7 @@
 
     extraModprobeConfig = ''
       options v4l2loopback devices=2 video_nr=1,2 card_label="OBS Cam, Virt Cam" exclusive_caps=1
+      options btusb enable_autosuspend=0
     '';
   };
 }

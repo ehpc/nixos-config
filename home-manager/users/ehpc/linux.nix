@@ -54,7 +54,7 @@
     ../../programs/halloy.nix
     ../../programs/timidity.nix
     ../../programs/fluidsynth.nix
-    (import ../../programs/dropbox.nix { inherit username; })
+    ../../programs/dropbox.nix
     (import ../../programs/claude {
       inherit pkgs pkgsUnstable username;
     })
@@ -94,6 +94,7 @@
     ripgrep
     fd
     tree
+    usbutils
 
     # Social
     telegram-desktop
