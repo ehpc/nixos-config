@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgsUnstable,
   isDarwin,
   username,
   email,
@@ -13,6 +14,9 @@
     (import ../../programs/mpv.nix {
       inherit isDarwin username;
     })
+    (import ../../programs/claude {
+      inherit pkgs pkgsUnstable username;
+    })
   ];
 
   home.packages = with pkgs; [
@@ -22,8 +26,7 @@
     # Dev
     binutils
     nasm
-    docker
-    colima
+    docker_29
 
     # Disk management
     restic

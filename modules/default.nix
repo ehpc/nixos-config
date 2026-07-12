@@ -32,6 +32,7 @@
   };
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [];
   nixpkgs.overlays = [
     playwright-cli.overlays.default
     audio-separator.overlays.default
