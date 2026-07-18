@@ -17,6 +17,8 @@
     (import ../../programs/claude {
       inherit pkgs pkgsUnstable username;
     })
+    ../../programs/kitty.nix
+    ../../programs/zsh.nix
   ];
 
   home.packages = with pkgs; [
