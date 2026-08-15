@@ -29,6 +29,7 @@
     binutils
     nasm
     docker_29
+    pkgsUnstable.dbeaver-bin
 
     # Disk management
     restic
