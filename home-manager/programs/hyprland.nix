@@ -4,7 +4,7 @@
     enable = true;
 
     plugins = with pkgs.hyprlandPlugins; [
-      hyprexpo
+      hyprspace
     ];
 
     settings = {
@@ -20,7 +20,7 @@
       };
 
       bind = [
-        "$mod, b, hyprexpo:expo, toggle"
+        "$mod, b, overview:toggle"
 
         # Apps
         "$mod, SPACE, exec, $menu"
