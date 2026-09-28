@@ -58,6 +58,9 @@
     (import ../../programs/claude {
       inherit pkgs pkgsUnstable username;
     })
+    (import ../../programs/codex {
+      inherit pkgs pkgsUnstable;
+    })
   ];
 
   home.packages = with pkgs; [
@@ -181,6 +184,7 @@
     playwright-cli
     pkgsUnstable.onnxruntime
     gh
+    lazygit
 
     # Virtualization
     bottles

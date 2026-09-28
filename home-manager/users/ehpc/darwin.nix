@@ -17,6 +17,10 @@
     (import ../../programs/claude {
       inherit pkgs pkgsUnstable username;
     })
+    (import ../../programs/codex {
+      inherit pkgs pkgsUnstable;
+    })
+    ../../programs/arturia.nix
     ../../programs/kitty.nix
     ../../programs/zsh.nix
   ];
@@ -30,6 +34,7 @@
     nasm
     docker_29
     pkgsUnstable.dbeaver-bin
+    lazygit
 
     # Disk management
     restic

@@ -67,7 +67,7 @@
         ];
         ask = [
         ];
-        defaultMode = "acceptEdits";
+        defaultMode = "auto";
         deny = [
           "Bash(sudo *)"
           "Bash(rm *)"
