@@ -44,8 +44,6 @@
     { device = "/dev/disk/by-label/NixOS-Swap"; }
   ];
 
-  boot.supportedFilesystems = [ "ntfs" ];
-
   #fileSystems."/home/ehpc/data1tb" = {
   #  device = "/dev/disk/by-label/Data1Tb";
   #  fsType = "ntfs3";
@@ -60,16 +58,13 @@
 
   fileSystems."/home/ehpc/data2tb" = {
     device = "/dev/disk/by-label/Data2Tb";
-    fsType = "ntfs3";
-    options = [
-      "rw"
-      "uid=1000"
-      "gid=100"
-      "dmask=022"
-      "fmask=133"
-      "nofail"
-    ];
+    fsType = "ext4";
+    options = [ "rw" "nofail" ];
   };
+
+  systemd.tmpfiles.rules = [
+    "d /home/ehpc/data2tb 0755 ehpc users -"
+  ];
 
   environment.etc.crypttab = {
     mode = "0600";

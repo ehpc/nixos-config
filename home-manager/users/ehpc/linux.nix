@@ -47,7 +47,7 @@
     ../../programs/chromium.nix
     ../../programs/restic.nix
     ../../programs/tailscale.nix
-    ../../programs/davinci-resolve.nix
+    # ../../programs/davinci-resolve.nix
     ../../programs/friture.nix
     ../../programs/obs.nix
     ../../programs/btop
@@ -81,6 +81,7 @@
     restic-browser
     veracrypt
     cryptomator
+    qdirstat
 
     # Utilities
     wl-clipboard
