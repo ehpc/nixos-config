@@ -7,6 +7,7 @@
   system,
   nixpkgs,
   playwright-cli,
+  wherdr,
   audio-separator,
   ...
 }:
@@ -35,6 +36,7 @@
   nixpkgs.config.permittedInsecurePackages = [ ];
   nixpkgs.overlays = [
     playwright-cli.overlays.default
+    wherdr.overlays.default
     audio-separator.overlays.default
   ];
 

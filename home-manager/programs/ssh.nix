@@ -3,16 +3,16 @@
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    matchBlocks = {
+    settings = {
       "github.com" = {
-        user = "git";
-        identityFile = "~/.ssh/github";
-        identitiesOnly = true;
+        User = "git";
+        IdentityFile = "~/.ssh/github";
+        IdentitiesOnly = true;
       };
       "ehpc.io" = {
-        user = "ehpc";
-        identityFile = "~/.ssh/ehpc_io";
-        identitiesOnly = true;
+        User = "ehpc";
+        IdentityFile = "~/.ssh/ehpc_io";
+        IdentitiesOnly = true;
       };
     };
   };

@@ -55,6 +55,8 @@
     ../../programs/timidity.nix
     ../../programs/fluidsynth.nix
     ../../programs/dropbox.nix
+    ../../programs/wherdr.nix
+    ../../programs/omp.nix
     (import ../../programs/claude {
       inherit pkgs pkgsUnstable username;
     })
@@ -182,6 +184,7 @@
     pkgsUnstable.dbeaver-bin
     pkgsUnstable.nasm
     pkgsUnstable.claude-code
+    pkgsUnstable.herdr
     playwright-cli
     pkgsUnstable.onnxruntime
     gh

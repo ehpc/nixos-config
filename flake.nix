@@ -28,6 +28,10 @@
       url = "path:./packages/playwright-cli";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    wherdr = {
+      url = "path:./packages/wherdr";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
     audio-separator = {
       url = "path:./packages/audio-separator";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -43,6 +47,7 @@
       home-manager,
       sops-nix,
       playwright-cli,
+      wherdr,
       audio-separator,
       ...
     }:
@@ -76,6 +81,7 @@
               pkgsUnstable
               isDarwin
               playwright-cli
+              wherdr
               audio-separator
               ;
           };
