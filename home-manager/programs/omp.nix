@@ -8,14 +8,39 @@ let
   settings = {
     modelRoles = {
       default = "openai-codex/gpt-6.1-sol";
+      task = "openai-codex/gpt-6.1-terra:auto";
       slow = "openai-codex/gpt-6-astra:auto";
-      advisor = "openai-codex/gpt-6-luna:auto";
+      plan = "openai-codex/gpt-6.1-sol:auto";
       image = "openai-codex/gpt-image-2";
-      smol = "openai-codex/gpt-6-luna:auto";
-      tiny = "openai-codex/gpt-6-luna:auto";
-      commit = "openai-codex/gpt-6-luna:auto";
-      plan = "openai-codex/gpt-6-astra:auto";
+      vision = "openai-codex/gpt-6.1-terra:auto";
+
+      smol = "openai-codex/gpt-6-luna:low";
+      tiny = "openai-codex/gpt-6-luna:low";
+      commit = "openai-codex/gpt-6-luna:low";
+      advisor = "openai-codex/gpt-6.1-sol:auto";
+      judge = "openai-codex/gpt-6-luna:low";
     };
+
+    find.enabled = "on";
+
+    retry = {
+      modelFallback = true;
+      fallbackRevertPolicy = "cooldown-expiry";
+      fallbackChains = {
+        default = [
+          "openrouter/z-ai/glm-5.3-flash:floor:low"
+        ];
+        slow = [
+          "openrouter/z-ai/glm-5.3:floor:high"
+          "openrouter/z-ai/glm-5.3-flash:floor:low"
+        ];
+        judge = [
+          "openrouter/z-ai/glm-5.3-flash:floor:low"
+        ];
+        image = [ ];
+      };
+    };
+
     symbolPreset = "nerd";
     composer.shape = "band";
     theme.dark = "titanium";

@@ -20,6 +20,18 @@ are not included; log in again after reinstalling.
 Keep the module tracked in Git with the rest of this configuration so it is
 included when rebuilding or cloning the flake for a reinstall.
 
+Model routing is Codex-first: Sol handles the main agent, planning, and review;
+Terra handles routine subagents and vision; Luna at low reasoning effort handles
+small helpers and judging. Astra is reserved for the `slow` role. The default
+failure fallback is OpenRouter GLM 5.3 Flash; `slow` tries full GLM 5.3 first.
+OpenRouter's `:floor` routing prioritizes cheaper eligible endpoints, including
+flex tiers, but does not impose a price cap or guarantee latency.
+
+`find.enabled = "on"` keeps semantic search available with the prompted Codex
+judge; native box-location judgments are unavailable. Image generation stays on
+Codex without a cross-provider fallback. Codex subscription allowance is not
+billed at API token prices; OpenRouter fallback requests spend OpenRouter credits.
+
 ## wherdr phone access
 
 `home-manager/programs/wherdr.nix` starts the headless Herdr server and the
